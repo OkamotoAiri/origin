@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>My App</title>
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"> </head>
+<body>
+  <div class="container">
+    <div id="app">
+      <h1>MEMO</h1>
+        <p v-show="todos.length">Remaining({{ remaining.length }}/{{ todos.length }})All task</p>
+        <p v-show="!todos.length">Remaining(0/0)All task</p>
+      
+      <form @submit.prevent="addItem"> <input type="text" v-model="newItem" value="" placeholder="&ensp;new title" id="new"> <input type="submit" value="追加" class="sub btn"> </form>
+      <ul>
+        <li v-for="(todo,index) in todos"> <span id="end" v-show="todo.isDone">▼ Finished!</span> <span id="end2" v-show="!todo.isDone">▽ Incomplete</span> <span :class="{done: todo.isDone}">
+						<br><input type="checkbox" v-model="todo.isDone">
+						<input type="text" class="title-text" v-model="todo.title" style="border:none;" title="タイトルを編集">
+						<div v-show="!todo.isDone" id="edit" v-on:click="editItem(index)">編集/完了</div>
+						<div class="text">{{ todo.memo }}</div></span> <br><textarea v-show="!todo.isDone" v-model="todo.memo" class="update"></textarea> </li>
+        <li>
+          <p v-show="!todos.length" class="message">メモを追加してください</p>
+        </li>
+      </ul>
+      <div @click="deleteItem" class="delete btn">チェックした項目を削除</div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script type="text/javascript" src="main.js"></script>
+</body>
+</html>
