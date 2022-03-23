@@ -1,0 +1,342 @@
+body {
+    margin:0 auto;
+    font-family:Verdana, sans-serif;
+    background-color: rgb(180, 202, 228);
+    color: rgb(255, 255, 255);
+}
+
+header {
+    display: flex;
+    padding:0 16px;
+    position: fixed;
+    background-color: rgba(255, 255, 255,0.9);
+    width:100%;
+    top:0;
+    z-index: 1;
+}
+
+header h1 {
+    margin:0;
+    font-size: 22px;
+    line-height: 64px;
+    color: black;
+}
+
+:focus {
+    outline: none;
+}
+
+p {
+    white-space: normal;
+  }
+
+ul {
+    list-style: none;
+    margin:0;
+    padding:0;
+}
+
+.sp-menu {
+    margin-left: auto;
+    margin-right: 30px;
+}
+
+.sp-menu #open {
+    font-size: 32px;
+    line-height: 64px;
+    cursor: pointer;
+    color: black;
+}
+
+.sp-menu #open.hide {
+    display: none;
+}
+
+main {
+    padding: 0 16px;
+}
+
+.carousel{
+    width:80%;
+    margin: 100px auto;
+    margin-bottom:20px;
+}
+
+.carousel h3 {
+    text-align: center;
+}
+
+.carousel h3 > #photo {
+    font-size:15px;
+}
+
+.container {
+    width:100%;
+    height:250px;
+    outline: 5px double white;
+    overflow: hidden;
+    position: relative;
+}
+
+.container ul {
+    height: 100%;
+    display: flex;
+    transition: transform .6s;
+}
+
+.container li {
+    height: 100%;
+    min-width: 100%;
+}
+
+.container li > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#prev,
+#next {
+    position: absolute;
+    top:50%;
+    transform: translatey(-50%);
+    border: none;
+    background: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+#prev:hover,
+#next:hover {
+    color: rgb(180, 202, 228);
+    transition: all 0.5s;
+}
+
+#prev {
+    left:0;
+}
+
+#next {
+    right:0;
+}
+
+.hidden {
+    display: none;
+}
+
+#slideBtn {
+    margin-top: 20px;
+    text-align: center;
+}
+#slideBtn button + button {
+    margin-left: 8px;
+}
+#slideBtn button {
+    border: none;
+    width: 12px;
+    height: 12px;
+    background-color: rgb(138, 183, 226);
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+#slideBtn .current {
+    background-color: rgb(110, 154, 204);
+}
+
+.overlay {
+    position: fixed;
+    z-index: 2;
+    top:0;
+    bottom:0;
+    right:0;
+    left:40%;
+    background-color: rgba(55, 144, 185, 0.9);
+    text-align: center;
+    padding: 64px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .6s;
+}
+
+.overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.overlay #close {
+    position: absolute;
+    top:16px;
+    right:16px;
+    font-size: 32px;
+    cursor: pointer;
+    color: white;
+}
+
+.overlay li {
+    margin-top:24px;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity .3s, transform .3s;
+}
+
+.overlay li > a {
+    display: block;
+    line-height: 50px;
+    text-decoration: none;
+    color: white;
+    transition: all .4s;
+}
+
+.overlay li > a:hover {
+    color: rgb(255, 253, 107);
+    font-size: 20px;
+    transition: all .4s;
+}
+
+.overlay.show li {
+    opacity: 1;
+    transform: none;
+}
+
+.overlay.show li:nth-child(1){
+    transition-delay: .1s;
+}
+.overlay.show li:nth-child(2){
+    transition-delay: .2s;
+}
+.overlay.show li:nth-child(3){
+    transition-delay: .3s;
+}
+
+.new-btn,
+.back-btn {
+    text-align: center;
+}
+
+.btn {
+    color: white;
+    text-decoration: none;
+    background-color: rgb(98, 164, 226);
+    padding:5px 14px;
+    border-radius: 15px;
+    transition: all .4s;
+    opacity: .8;
+    margin:0 auto;
+    
+}
+
+.btn:hover {
+    opacity: 1;
+    transition: all .4s;
+    border-radius: 0px;
+    cursor: pointer;
+}
+
+h2, 
+.no-text{
+    font-size: 16px;
+    text-align: center;
+}
+
+.diary-list h3 > span {
+    font-weight: normal;
+    float: right;
+    font-size: 14px;
+}
+
+.diary-list,
+.form-wrapper {
+    margin:0 auto;
+    border-radius: 8px;
+    width: 420px;
+}
+form {
+    margin-top:100px;
+}
+
+.diary-list {
+    width:70%;
+    padding:20px;
+    margin-top:30px;
+    color: #000;
+    word-break: break-word ;
+}
+
+.diary-list li {
+    padding:2px 20px 45px 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    margin-bottom:15px;
+}
+
+
+form >  input[type="submit"] {
+    display: block;
+    background: none;
+    border:1px solid rgb(0, 0, 0);
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 12px;
+    width: 80px;
+    margin:10px 0;
+}
+
+input,
+textarea {
+    margin:0 auto;
+    border: none;
+    /* width: 300px; */
+    padding:8px;
+    background-color: rgb(241, 238, 238);
+}
+
+/* textarea {
+    width: 400px;
+    resize: none;
+    height: 60px;
+} */
+#text-box {
+    width: 400px;
+    height: 30px;
+}
+.pc-menu{
+    display: none;
+}
+
+@media (min-width: 600px){
+    .pc-menu{
+        display: block;
+        margin-left: auto;
+        margin-right: 30px;
+    }
+
+    .pc-menu ul{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+
+    }
+
+    .pc-menu a {
+        display: block;
+        width: 80px;
+        line-height: 64px;
+        text-align: center;
+        text-decoration: none;
+        color: black;
+        transition: all .4s;
+    }
+
+    .pc-menu a:hover {
+        background-color: rgb(255, 253, 107);
+        border-radius: 0;
+        transition: all .4s;
+        font-size: 20px;
+    }
+    
+    .sp-menu{
+        display: none;
+    }
+}
